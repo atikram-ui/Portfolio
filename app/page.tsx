@@ -761,15 +761,22 @@ ${formData.name}`,
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="grid grid-cols-3 gap-4 justify-items-center">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     {portfolioData.certifications
                       .flatMap((cert) => cert.items)
-                      .filter((item) => item !== "Vulnerability Assessment") // Remove from certifications
+                      .filter((item) => item !== "Vulnerability Assessment")
                       .map((item, index) => (
-                        <motion.div key={item} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                        <motion.div
+                          key={item}
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ delay: index * 0.05 }}
+                        >
                           <Badge
                             variant="outline"
-                            className="neon-border hover:bg-primary/10 transition-colors text-xs w-full justify-center py-2"
+                            className="neon-border hover:bg-primary/10 transition-colors text-sm w-full justify-center py-3 px-4 text-center"
                           >
                             {item}
                           </Badge>
@@ -796,13 +803,20 @@ ${formData.name}`,
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="grid grid-cols-5 gap-3 justify-items-center">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
                     {[...portfolioData.courses.flatMap((course) => course.items), "Vulnerability Assessment"].map(
                       (item, index) => (
-                        <motion.div key={item} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                        <motion.div
+                          key={item}
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ delay: index * 0.03 }}
+                        >
                           <Badge
                             variant="outline"
-                            className="neon-border hover:bg-primary/10 transition-colors text-xs w-full justify-center py-2"
+                            className="neon-border hover:bg-primary/10 transition-colors text-sm w-full justify-center py-3 px-4 text-center"
                           >
                             {item}
                           </Badge>
