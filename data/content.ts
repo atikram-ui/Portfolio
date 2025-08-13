@@ -9,7 +9,7 @@ export const portfolioData = {
   },
 
   about:
-    "Highly driven Cybersecurity and Digital Forensics student with expertise in incident response, SIEM/SOAR tools, and real-time threat detection. Skilled in malware identification, forensic investigations, and log analysis through academic projects, internships, and specialized courses. Aspiring to contribute to a Security Operations Center (SOC) with a focus on proactive threat mitigation and strengthening security posture.",
+    "Highly driven Cybersecurity and Digital Forensics professional with expertise in incident response, SIEM/SOAR tools, and real-time threat detection. Skilled in malware identification, forensic investigations, and log analysis through academic projects, internships, and specialized courses. Aspiring to contribute to a Security Operations Center (SOC) with a focus on proactive threat mitigation and strengthening security posture.",
 
   technicalSkills: [
     {
