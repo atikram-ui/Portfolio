@@ -52,7 +52,7 @@ export function AnimatedNavbar() {
             className="flex items-center gap-2"
           >
             <Shield className="h-6 w-6 text-primary" />
-            <span className="font-serif font-bold text-lg">{"CYBER SENTINEL"}</span>
+            <span className="font-serif font-bold text-lg">CYBER SENTINEL </span>
           </motion.div>
 
           {/* Desktop Navigation */}

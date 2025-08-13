@@ -103,18 +103,18 @@ const toolIcons: { [key: string]: any } = {
 }
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
 }
 
 const slideLeft = {
-  hidden: { opacity: 0, x: 30 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: "easeOut" } },
+  hidden: { opacity: 0, x: 50 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
 }
 
 const popIn = {
-  hidden: { opacity: 0, scale: 0.95 },
-  visible: { opacity: 1, scale: 1, transition: { duration: 0.3, type: "spring", stiffness: 300, damping: 30 } },
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.6, type: "spring", damping: 20 } },
 }
 
 const staggerContainer = {
@@ -122,8 +122,8 @@ const staggerContainer = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.05,
-      delayChildren: 0.1,
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
     },
   },
 }
@@ -218,7 +218,7 @@ ${formData.name}`,
         <div className="max-w-5xl mx-auto text-center space-y-8">
           <motion.div variants={staggerContainer} initial="hidden" animate="visible" className="space-y-6">
             <motion.h1 variants={fadeUp} className="text-6xl md:text-8xl font-serif font-bold text-foreground">
-              ATIKRAM DAS
+              {portfolioData.personal.name.toUpperCase()}
             </motion.h1>
 
             <motion.div variants={fadeUp} className="space-y-4">
@@ -229,7 +229,6 @@ ${formData.name}`,
                 initial={{ width: 0 }}
                 animate={{ width: "100%" }}
                 transition={{ duration: 1.5, delay: 1, ease: [0.22, 1, 0.36, 1] }}
-                viewport={{ once: true }}
                 className="h-1 bg-gradient-to-r from-primary via-secondary to-primary mx-auto max-w-md"
               />
             </motion.div>
@@ -354,8 +353,8 @@ ${formData.name}`,
                             strokeWidth="1"
                             initial={{ opacity: 0, scale: 0 }}
                             whileInView={{ opacity: 0.8, scale: 1 }}
-                            transition={{ delay: index * 0.03, duration: 0.3 }}
-                            whileHover={{ opacity: 1, scale: 1.02 }}
+                            transition={{ delay: index * 0.05, duration: 0.4 }}
+                            whileHover={{ opacity: 1, scale: 1.05 }}
                             className="cursor-pointer"
                           />
                         )
@@ -368,9 +367,9 @@ ${formData.name}`,
                     {coreCompetencies.map((competency, index) => (
                       <motion.div
                         key={competency.name}
-                        initial={{ opacity: 0, x: 30 }}
+                        initial={{ opacity: 0, x: 50 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ delay: index * 0.03, duration: 0.3 }}
+                        transition={{ delay: index * 0.05 }}
                         className="flex items-center gap-3"
                       >
                         <div className="w-4 h-4 rounded-full" style={{ backgroundColor: competency.color }} />
@@ -405,7 +404,7 @@ ${formData.name}`,
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true }}
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
             {portfolioData.technicalSkills.map((skillGroup, index) => {
@@ -414,8 +413,8 @@ ${formData.name}`,
                 <motion.div
                   key={skillGroup.category}
                   variants={popIn}
-                  whileHover={{ y: -3, scale: 1.01 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                  whileHover={{ y: -5, scale: 1.01 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
                 >
                   <Card className="glass-card neon-border h-full project-card">
                     <CardHeader>
@@ -465,7 +464,7 @@ ${formData.name}`,
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true }}
             className="grid md:grid-cols-3 gap-8"
           >
             {portfolioData.softSkills.map((skillGroup, index) => {
@@ -474,8 +473,8 @@ ${formData.name}`,
                 <motion.div
                   key={skillGroup.category}
                   variants={popIn}
-                  whileHover={{ y: -3, scale: 1.01 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                  whileHover={{ y: -5, scale: 1.01 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
                 >
                   <Card className="glass-card neon-border h-full project-card">
                     <CardHeader>
@@ -485,12 +484,12 @@ ${formData.name}`,
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="space-y-3">
                         {skillGroup.skills.map((skill) => (
                           <Badge
                             key={skill}
                             variant="outline"
-                            className="neon-border hover:bg-primary/10 transition-colors"
+                            className="neon-border w-full justify-center py-2 text-sm"
                           >
                             {skill}
                           </Badge>
@@ -525,7 +524,7 @@ ${formData.name}`,
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true }}
             className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
           >
             {Object.entries(portfolioData.tools).map(([category, tools], index) => {
@@ -534,8 +533,8 @@ ${formData.name}`,
                 <motion.div
                   key={category}
                   variants={popIn}
-                  whileHover={{ y: -3, scale: 1.01 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                  whileHover={{ y: -5, scale: 1.01 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
                 >
                   <Card className="glass-card neon-border h-full project-card">
                     <CardHeader>
@@ -590,15 +589,15 @@ ${formData.name}`,
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true }}
             className="grid md:grid-cols-2 gap-8"
           >
             {portfolioData.projects.map((project, index) => (
               <motion.div
                 key={project.title}
                 variants={popIn}
-                whileHover={{ y: -5, rotateX: 1, rotateY: 1 }}
-                transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                whileHover={{ y: -8, rotateX: 2, rotateY: 2 }}
+                transition={{ type: "spring", stiffness: 400, damping: 25 }}
                 style={{ transformStyle: "preserve-3d" }}
               >
                 <Card className="glass-card neon-border h-full group project-card">
@@ -839,15 +838,15 @@ ${formData.name}`,
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true }}
             className="grid md:grid-cols-2 gap-8"
           >
             {portfolioData.achievements.map((achievement, index) => (
               <motion.div
                 key={achievement.title}
                 variants={popIn}
-                whileHover={{ y: -3, scale: 1.01 }}
-                transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                whileHover={{ y: -5, scale: 1.01 }}
+                transition={{ type: "spring", stiffness: 400, damping: 25 }}
               >
                 <Card className="glass-card neon-border h-full project-card">
                   <CardHeader>
@@ -899,6 +898,7 @@ ${formData.name}`,
                     <p className="text-xl text-muted-foreground">
                       Ready to secure your digital infrastructure? Let's connect!
                     </p>
+                    <p className="text-lg">Click the button below to send me an email directly.</p>
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-6">
@@ -948,6 +948,9 @@ ${formData.name}`,
 
                     <p className="text-sm text-muted-foreground text-center">
                       Your message will be sent directly to my inbox.
+                      <br />
+                      For urgent matters, email me directly at:{" "}
+                      <span className="text-primary font-mono">cyber.secfor@gmail.com</span>
                     </p>
                   </div>
 
