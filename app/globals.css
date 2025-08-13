@@ -119,6 +119,7 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    will-change: auto;
   }
   body {
     background: linear-gradient(135deg, #050505 0%, #0e0b16 100%);
@@ -130,12 +131,12 @@
 @keyframes hexagon-pulse {
   0%,
   100% {
-    opacity: 0.3;
+    opacity: 0.2;
     transform: scale(1);
   }
   50% {
-    opacity: 0.6;
-    transform: scale(1.05);
+    opacity: 0.4;
+    transform: scale(1.02);
   }
 }
 
@@ -151,12 +152,10 @@
 @keyframes neon-glow {
   0%,
   100% {
-    text-shadow: 0 0 5px #0ff0fc, 0 0 10px #0ff0fc, 0 0 15px #0ff0fc;
-    box-shadow: 0 0 5px #0ff0fc, 0 0 10px #0ff0fc, 0 0 15px #0ff0fc;
+    box-shadow: 0 0 5px rgba(15, 240, 252, 0.3);
   }
   50% {
-    text-shadow: 0 0 10px #0ff0fc, 0 0 20px #0ff0fc, 0 0 30px #0ff0fc;
-    box-shadow: 0 0 10px #0ff0fc, 0 0 20px #0ff0fc, 0 0 30px #0ff0fc;
+    box-shadow: 0 0 10px rgba(15, 240, 252, 0.5);
   }
 }
 
@@ -199,16 +198,17 @@
 
 /* Glassmorphism cards */
 .glass-card {
-  background: rgba(15, 240, 252, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(15, 240, 252, 0.2);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  background: rgba(15, 240, 252, 0.04);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(15, 240, 252, 0.15);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
 }
 
 .glass-card:hover {
-  background: rgba(15, 240, 252, 0.08);
-  border-color: rgba(15, 240, 252, 0.4);
-  box-shadow: 0 0 20px rgba(15, 240, 252, 0.2);
+  background: rgba(15, 240, 252, 0.06);
+  border-color: rgba(15, 240, 252, 0.3);
+  box-shadow: 0 0 15px rgba(15, 240, 252, 0.15);
 }
 
 /* Terminal typing effect */
@@ -246,13 +246,14 @@
 }
 
 .neon-border {
-  border: 1px solid rgba(15, 240, 252, 0.3);
-  box-shadow: 0 0 10px rgba(15, 240, 252, 0.2);
+  border: 1px solid rgba(15, 240, 252, 0.2);
+  box-shadow: 0 0 5px rgba(15, 240, 252, 0.1);
+  transition: all 0.2s ease;
 }
 
 .neon-border:hover {
-  border-color: rgba(15, 240, 252, 0.6);
-  box-shadow: 0 0 20px rgba(15, 240, 252, 0.4);
+  border-color: rgba(15, 240, 252, 0.4);
+  box-shadow: 0 0 10px rgba(15, 240, 252, 0.2);
 }
 
 /* Data scan effect */
@@ -270,11 +271,11 @@
 /* 3D tilt effect for project cards */
 .project-card {
   transform-style: preserve-3d;
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease;
 }
 
 .project-card:hover {
-  transform: rotateX(5deg) rotateY(5deg) translateZ(10px);
+  transform: rotateX(2deg) rotateY(2deg) translateZ(5px);
 }
 
 /* Radar chart styling */
@@ -286,4 +287,15 @@
 .parallax-bg {
   transform: translateZ(0);
   will-change: transform;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

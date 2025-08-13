@@ -1,5 +1,5 @@
-@import 'tailwindcss';
-@import 'tw-animate-css';
+@import "tailwindcss";
+@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -40,38 +40,39 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
+  /* Updated to Cyber Sentinel theme colors */
+  --background: linear-gradient(135deg, #050505 0%, #0e0b16 100%);
   --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
+  --card: rgba(15, 240, 252, 0.05);
   --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
+  --popover: rgba(15, 240, 252, 0.05);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
+  --primary: #0ff0fc; /* electric cyan */
+  --primary-foreground: #050505;
+  --secondary: #a239ca; /* neon purple */
   --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
+  --muted: rgba(255, 255, 255, 0.1);
+  --muted-foreground: rgba(255, 255, 255, 0.6);
+  --accent: #a239ca; /* neon purple */
+  --accent-foreground: #050505;
   --destructive: oklch(0.396 0.141 25.723);
   --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
+  --border: rgba(15, 240, 252, 0.2);
+  --input: rgba(15, 240, 252, 0.1);
+  --ring: #0ff0fc;
+  --chart-1: #0ff0fc;
+  --chart-2: #a239ca;
+  --chart-3: rgba(15, 240, 252, 0.7);
+  --chart-4: rgba(162, 57, 202, 0.7);
+  --chart-5: rgba(15, 240, 252, 0.5);
+  --sidebar: rgba(5, 5, 5, 0.9);
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-primary: #0ff0fc;
+  --sidebar-primary-foreground: #050505;
+  --sidebar-accent: rgba(15, 240, 252, 0.1);
   --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  --sidebar-border: rgba(15, 240, 252, 0.2);
+  --sidebar-ring: #0ff0fc;
 }
 
 @theme inline {
@@ -118,6 +119,8 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    /* Added Cyber Sentinel background gradient */
+    background: linear-gradient(135deg, #050505 0%, #0e0b16 100%);
+    @apply text-foreground;
   }
 }
