@@ -1,30 +1,56 @@
-# Cyber security portfolio
+# 🛡️ Cyber Security Portfolio
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+A modern, responsive portfolio website for showcasing my work in **Cyber Security, Digital Forensics, Threat Intelligence, and Security Research**.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/atikramdas24-3978s-projects/v0-cyber-security-portfolio)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/projects/FQLIcHReJJ2)
+Live demo: **https://v0-cyber-security-portfolio-vert.vercel.app**
 
-## Overview
+---
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+## 🚀 Overview
 
-## Deployment
+This project is a developer-friendly portfolio built using **Next.js** and **TypeScript**.  
+It’s optimized for security-focused roles and highlights:
 
-Your project is live at:
+- Cyber Security & DFIR skills
+- Projects and case studies
+- Certifications & achievements
+- Experience, education, and tools/tech stack
 
-**[https://vercel.com/atikramdas24-3978s-projects/v0-cyber-security-portfolio](https://vercel.com/atikramdas24-3978s-projects/v0-cyber-security-portfolio)**
+The repository is also synced with **v0.app** and deployed via **Vercel**, so UI changes can be made visually and then pushed to this repo.
 
-## Build your app
+---
 
-Continue building your app on:
+## ✨ Features
 
-**[https://v0.app/chat/projects/FQLIcHReJJ2](https://v0.app/chat/projects/FQLIcHReJJ2)**
+- 🧑‍💻 **Cyber Security–focused layout** (skills, tools, projects, and case studies)
+- 📱 **Fully responsive** for desktop, tablet, and mobile
+- ⚡ **Fast and optimized** using Next.js
+- 🧩 **Component-based architecture** for easy customization
+- 🎯 Ready to be used as a **portfolio for job applications, internships, and client work**
 
-## How It Works
+---
 
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+## 🧰 Tech Stack
+
+- **Framework:** Next.js (App Router)
+- **Language:** TypeScript
+- **Styling:** CSS (and utility-based styling via the `styles/` and `components/` structure)
+- **Package Manager:** pnpm (recommended) or npm
+- **Deployment:** Vercel
+- **Design Source:** Synced from [v0.app](https://v0.app)
+
+---
+
+## 📂 Project Structure
+
+```txt
+.
+├── app/              # Next.js app routes & layout
+├── components/       # Reusable UI components
+├── data/             # Portfolio data (projects, skills, links, etc.)
+├── lib/              # Utilities and helper functions
+├── public/           # Static assets (images, icons, etc.)
+├── styles/           # Global and component styles
+├── next.config.mjs   # Next.js configuration
+├── package.json      # Dependencies and scripts
+└── README.md
