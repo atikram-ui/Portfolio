@@ -2,8 +2,7 @@
 
 import type React from "react"
 
-import { motion } from "framer-motion"
-import { useInView } from "framer-motion"
+import { motion, useInView, type Variants } from "framer-motion"
 import { useRef } from "react"
 
 interface AnimatedSectionProps {
@@ -17,7 +16,7 @@ export function AnimatedSection({ children, className = "", delay = 0, direction
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
 
-  const variants = {
+  const variants: Variants = {
     hidden: {
       opacity: 0,
       y: direction === "up" ? 50 : direction === "down" ? -50 : 0,
@@ -30,7 +29,7 @@ export function AnimatedSection({ children, className = "", delay = 0, direction
       transition: {
         duration: 0.6,
         delay,
-        ease: [0.25, 0.25, 0.25, 0.75],
+        ease: [0.25, 0.25, 0.25, 0.75] as [number, number, number, number],
       },
     },
   }

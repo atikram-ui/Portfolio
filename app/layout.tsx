@@ -1,12 +1,12 @@
 import type React from "react"
-import type { Metadata } from "next"
-import { Orbitron, Inter } from "next/font/google"
+import type { Metadata, Viewport } from "next"
+import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google"
 import "./globals.css"
 
-const orbitron = Orbitron({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-orbitron",
+  variable: "--font-space-grotesk",
 })
 
 const inter = Inter({
@@ -15,11 +15,38 @@ const inter = Inter({
   variable: "--font-inter",
 })
 
+const jetBrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-jetbrains-mono",
+})
+
 export const metadata: Metadata = {
-  title: "Atikram Das – Cybersecurity & Digital Forensics Portfolio",
+  title: "Atikram Das | Digital Forensics & Incident Response Analyst",
   description:
-    "Professional cybersecurity portfolio showcasing expertise in penetration testing, digital forensics, and security consulting",
+    "Digital Forensics and Incident Response analyst investigating digital evidence, reconstructing cyber incidents, and supporting evidence-driven response.",
+  applicationName: "Atikram Das — DFIR Portfolio",
   generator: "v0.app",
+  openGraph: {
+    title: "Atikram Das | Digital Forensics & Incident Response Analyst",
+    description:
+      "Digital forensics, incident investigation, evidence handling and selected DFIR projects.",
+    type: "website",
+    siteName: "Atikram Das — DFIR Portfolio",
+  },
+  twitter: {
+    card: "summary",
+    title: "Atikram Das | Digital Forensics & Incident Response Analyst",
+    description:
+      "Digital forensics, incident investigation, evidence handling and selected DFIR projects.",
+  },
+}
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#080C14",
+  colorScheme: "dark",
 }
 
 export default function RootLayout({
@@ -28,7 +55,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${orbitron.variable} ${inter.variable} dark`}>
+    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable} ${jetBrainsMono.variable} dark`}>
       <body className="antialiased">{children}</body>
     </html>
   )
