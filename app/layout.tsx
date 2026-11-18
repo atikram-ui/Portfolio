@@ -1,24 +1,24 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Orbitron, Inter } from "next/font/google"
+import { DM_Sans, Playfair_Display } from "next/font/google"
 import "./globals.css"
 
-const orbitron = Orbitron({
+const editorial = Playfair_Display({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-orbitron",
+  variable: "--font-editorial",
 })
 
-const inter = Inter({
+const inter = DM_Sans({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
 })
 
 export const metadata: Metadata = {
-  title: "Atikram Das – Cybersecurity & Digital Forensics Portfolio",
+  title: "Atikram Das — Cybersecurity & Digital Forensics",
   description:
-    "Professional cybersecurity portfolio showcasing expertise in penetration testing, digital forensics, and security consulting",
+    "Atikram Das is a cybersecurity and digital forensics professional focused on investigation, incident response, and evidence-led security.",
   generator: "v0.app",
 }
 
@@ -28,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${orbitron.variable} ${inter.variable} dark`}>
+    <html lang="en" className={`${editorial.variable} ${inter.variable}`}>
       <body className="antialiased">{children}</body>
     </html>
   )
