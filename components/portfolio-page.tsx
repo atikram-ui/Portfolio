@@ -2,7 +2,6 @@ import {
   ArrowDownRight,
   ArrowRight,
   ArrowUpRight,
-  AtSign,
   BriefcaseBusiness,
   Check,
   Fingerprint,
@@ -13,28 +12,31 @@ import {
   ScanSearch,
   ShieldCheck,
 } from "lucide-react"
+import { ExpertiseTabs } from "@/components/expertise-tabs"
+import { ProjectSlider } from "@/components/project-slider"
 
 const experience = [
   {
-    date: "2026",
-    title: "Forensics Analyst Intern",
+    date: "Jan — Oct 2026",
+    title: "Forensics Analyst",
     company: "AreteIR",
     location: "Hyderabad, India",
     description:
       "Investigated BEC, cybercrime, and ransomware incidents by correlating endpoint, disk, memory, network, identity, email, and cloud evidence.",
     highlights: [
-      "Scoped 7 BEC and cybercrime incidents and 2 ransomware cases, reducing time to identification by 2 hours per case.",
-      "Identified persistence and unauthorized remote-access tools across 18+ endpoints through memory and Windows artifact analysis.",
-      "Pivoted across 25+ indicators and automated enrichment and artifact correlation with Python and PowerShell.",
+      "Investigated 7 BEC and cybercrime incidents and 2 ransomware cases, reducing time to identification by about 2 hours per case.",
+      "Identified persistence mechanisms and unauthorized remote-access tools across 18+ endpoints through memory and Windows artifact analysis.",
+      "Pivoted across 25+ hashes, domains, URLs, and IP addresses to help scope intrusion activity.",
+      "Automated IOC enrichment and artifact correlation using Python and PowerShell; prepared structured reports and remediation recommendations.",
     ],
   },
   {
-    date: "2025",
+    date: "May — Jun 2025",
     title: "Digital Forensics Intern",
     company: "CID Crime Branch HQ",
     location: "India",
     description:
-      "Supported cybercrime investigations with endpoint and log analysis, evidence documentation, and OSINT collection.",
+      "Supported cybercrime investigations through endpoint and log analysis, evidence documentation, and OSINT collection; prepared investigation-ready reports.",
   },
   {
     date: "2024",
@@ -42,7 +44,7 @@ const experience = [
     company: "C-DAC Noida",
     location: "Noida, India",
     description:
-      "Tested web and network systems against OWASP Top 10 risks, validated findings, and prepared severity-rated remediation reports.",
+      "Tested web and network systems against OWASP Top 10 risks, manually validated findings, and prepared severity-rated assessment and remediation reports.",
   },
   {
     date: "2023",
@@ -50,69 +52,38 @@ const experience = [
     company: "Engineer Core",
     location: "India",
     description:
-      "Performed web and network vulnerability assessments and tracked remediation recommendations.",
+      "Performed vulnerability assessments and penetration testing on web applications and networks, documenting findings and remediation steps.",
   },
 ]
 
-const investigations = [
+const projects = [
   {
     number: "01",
     category: "Digital forensics · Incident response",
-    title: "Evidence correlation framework",
+    title: "Integrated Digital Forensics Correlation Framework",
     description:
-      "A Python framework that brings disk, memory, network, and log artifacts into one investigation timeline, matching related indicators to support faster scoping and root-cause analysis.",
-    tools: ["Python", "Artifact analysis", "Timeline reconstruction"],
+      "Correlates disk, memory, network, and log artifacts into a unified investigation timeline. Cross-source artifact matching helps surface related indicators, accelerate incident scoping, and support root-cause analysis with traceable findings.",
+    tools: ["Python", "Artifact correlation", "Timeline reconstruction"],
+    mark: "DFIR",
   },
   {
     number: "02",
-    category: "Detection engineering · Ransomware",
-    title: "Behavior-based ransomware detection",
+    category: "Incident response · Recovery",
+    title: "Ransomware Detection & System Recovery",
     description:
-      "Detection logic combining file-entropy scoring and behavioral heuristics to flag mass-encryption activity, with ATT&CK-aligned investigation reports for response.",
+      "Combines file-entropy scoring with behavioral heuristics to identify mass-encryption activity early. The workflow raises investigation-ready alerts, maps observed behavior to MITRE ATT&CK, and supports recovery of affected files.",
     tools: ["Python", "Behavioral analysis", "MITRE ATT&CK"],
+    mark: "IR",
   },
   {
     number: "03",
     category: "Threat intelligence · OSINT",
-    title: "Dark-Scrapper intelligence pipeline",
+    title: "Dark-Scrapper Intelligence Pipeline",
     description:
-      "A research pipeline that collects threat content, extracts and enriches indicators, and classifies relevant findings into ATT&CK-mapped reports and dashboard alerts.",
+      "A threat-intelligence research project that gathers threat content, extracts and enriches indicators, and classifies relevant findings into ATT&CK-mapped reports and dashboard alerts.",
     tools: ["Python", "NLP", "Threat intelligence"],
+    mark: "CTI",
   },
-]
-
-const strengths = [
-  {
-    number: "01",
-    title: "Threat hunting",
-    text: "Hypothesis-led hunts, SIEM/EDR correlation, anomaly analysis, and attack timeline reconstruction.",
-    tools: "Splunk · Microsoft Sentinel · KQL / SPL (lab use)",
-  },
-  {
-    number: "02",
-    title: "Threat intelligence",
-    text: "IOC extraction, enrichment, validation, OSINT, and mapping adversary behavior to ATT&CK and the Cyber Kill Chain.",
-    tools: "VirusTotal · AbuseIPDB · Shodan",
-  },
-  {
-    number: "03",
-    title: "Security testing",
-    text: "Web and network vulnerability assessment, manual finding validation, severity rating, and remediation reporting.",
-    tools: "OWASP Top 10 · VAPT",
-  },
-  {
-    number: "04",
-    title: "Risk & compliance",
-    text: "Control-gap analysis, audit evidence, risk documentation, and security recommendations informed by incident work.",
-    tools: "ISO/IEC 27001:2022 · NIST · CIS Controls",
-  },
-]
-
-const toolGroups = [
-  { label: "Forensics", items: "Magnet AXIOM · FTK · EnCase · X-Ways · Autopsy · Belkasoft · Oxygen · Volatility" },
-  { label: "Evidence sources", items: "Windows & Linux · Microsoft 365 · Google Workspace · AWS · Network traffic" },
-  { label: "Response & analysis", items: "Splunk · Microsoft Sentinel · Wireshark · VirusTotal · AbuseIPDB · Shodan" },
-  { label: "Automation", items: "Python · PowerShell · Bash · SQL" },
 ]
 
 const credentials = [
@@ -122,15 +93,15 @@ const credentials = [
   "Fortinet Certified Associate (FCA)",
 ]
 
-function SectionHeading({
-  eyebrow,
-  title,
-  detail,
-}: {
-  eyebrow: string
-  title: string
-  detail?: string
-}) {
+const evidenceSources = [
+  { type: "Endpoint", sources: "Windows · Linux", details: "Registry, event logs, services, scheduled tasks, browser and system artifacts" },
+  { type: "Memory & disk", sources: "Memory images · Forensic disk images", details: "Memory analysis, file-system artifacts, persistence, and timeline evidence" },
+  { type: "Identity & email", sources: "Microsoft 365 · Google Workspace", details: "Account activity, sign-in events, mailbox and email investigation" },
+  { type: "Cloud", sources: "AWS", details: "Cloud activity and log review for incident scope and sequence" },
+  { type: "Network", sources: "Network traffic · PCAP · Logs", details: "Traffic analysis, connections, indicators, and event correlation" },
+]
+
+function SectionHeading({ eyebrow, title, detail }: { eyebrow: string; title: string; detail?: string }) {
   return (
     <div className="section-heading">
       <p className="eyebrow">{eyebrow}</p>
@@ -147,86 +118,60 @@ export function PortfolioPage() {
     <main>
       <header className="site-header">
         <a className="wordmark" href="#home" aria-label="Atikram Das home">
-          <span className="wordmark-mark">AD</span>
-          <span>Atikram Das</span>
+          <span className="wordmark-mark">AD</span><span>Atikram Das</span>
         </a>
         <nav className="main-nav" aria-label="Main navigation">
-          <a href="#work">Selected work</a>
-          <a href="#experience">Experience</a>
-          <a href="#expertise">Expertise</a>
-          <a href="#about">About</a>
+          <a href="#work">Projects</a><a href="#experience">Experience</a><a href="#expertise">Expertise</a><a href="#about">About</a>
         </nav>
-        <a className="header-contact" href="mailto:atikramdas24@gmail.com">
-          Get in touch <ArrowUpRight aria-hidden="true" />
-        </a>
+        <a className="header-contact" href="mailto:atikramdas24@gmail.com">Contact <ArrowUpRight aria-hidden="true" /></a>
       </header>
 
       <section className="hero page-width" id="home">
         <div className="hero-copy">
-          <p className="eyebrow hero-eyebrow"><span className="status-dot" /> DFIR · Digital forensics & incident response</p>
-          <h1>Making sense<br />of the <span>evidence.</span></h1>
+          <p className="eyebrow hero-eyebrow"><span className="status-dot" /> Digital forensics · Incident response</p>
+          <h1>Atikram Das<span className="hero-period">.</span></h1>
+          <p className="hero-role">Digital Forensics &amp; Incident Response Analyst</p>
           <p className="hero-description">
-            I investigate digital incidents, connect the evidence, and turn technical findings into clear next steps.
+            I investigate digital incidents, connect evidence across endpoints, memory, networks, identity, email, and cloud environments, and turn technical findings into clear next steps—with a focus on BEC and ransomware investigations.
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#work">Explore selected work <ArrowDownRight aria-hidden="true" /></a>
-            <a className="text-link" href="mailto:atikramdas24@gmail.com">Contact me <ArrowUpRight aria-hidden="true" /></a>
+            <a className="text-link" href="mailto:atikramdas24@gmail.com">Get in touch <ArrowUpRight aria-hidden="true" /></a>
           </div>
-          <div className="hero-meta">
-            <span><MapPin aria-hidden="true" /> India</span>
-            <span className="meta-divider" />
-            <span>M.Sc. Digital Forensics & Information Security</span>
-          </div>
+          <div className="hero-meta"><span><MapPin aria-hidden="true" /> India</span><span className="meta-divider" /><span>M.Sc. Digital Forensics &amp; Information Security</span></div>
         </div>
-
-        <aside className="case-file" aria-label="Investigation snapshot">
-          <div className="case-file-top">
-            <span className="case-file-label"><ScanSearch aria-hidden="true" /> Investigation snapshot</span>
-            <span className="case-file-index">DFIR / 026</span>
-          </div>
-          <div className="case-file-title">
-            <span className="case-file-kicker">Working across</span>
-            <h2>Host. Identity.<br />Network. Cloud.</h2>
-          </div>
+        <aside className="case-file" aria-label="Investigation approach">
+          <div className="case-file-top"><span className="case-file-label"><ScanSearch aria-hidden="true" /> Investigation approach</span><span className="case-file-index">DFIR / 026</span></div>
+          <div className="case-file-title"><span className="case-file-kicker">One investigation. Multiple evidence sources.</span><h2>Find the signal.<br />Build the timeline.</h2></div>
           <div className="evidence-list">
-            <div><span className="evidence-icon"><Fingerprint aria-hidden="true" /></span><span>Evidence-led investigations</span><Check aria-hidden="true" className="evidence-check" /></div>
-            <div><span className="evidence-icon"><Radio aria-hidden="true" /></span><span>Cross-source correlation</span><Check aria-hidden="true" className="evidence-check" /></div>
-            <div><span className="evidence-icon"><ShieldCheck aria-hidden="true" /></span><span>Actionable response reports</span><Check aria-hidden="true" className="evidence-check" /></div>
+            <div><span className="evidence-icon"><Fingerprint aria-hidden="true" /></span><span>Preserve and examine evidence</span><Check aria-hidden="true" className="evidence-check" /></div>
+            <div><span className="evidence-icon"><Radio aria-hidden="true" /></span><span>Correlate events across sources</span><Check aria-hidden="true" className="evidence-check" /></div>
+            <div><span className="evidence-icon"><ShieldCheck aria-hidden="true" /></span><span>Communicate clear response actions</span><Check aria-hidden="true" className="evidence-check" /></div>
           </div>
-          <div className="case-file-footer"><span>Current focus</span><span>Forensics · IR · Threat hunting</span></div>
+          <div className="case-file-footer"><span>Primary domain</span><span>Digital forensics &amp; incident response</span></div>
           <div className="case-file-watermark" aria-hidden="true">AD</div>
         </aside>
       </section>
 
-      <section className="proof-strip" aria-label="Career highlights">
+      <section className="proof-strip" aria-label="Investigation highlights">
         <div className="page-width proof-grid">
-          <div className="proof-intro"><span className="eyebrow">Field notes</span><p>Selected investigation<br />experience</p></div>
-          <div className="proof-stat"><strong>9</strong><span>incidents investigated<br />across BEC & ransomware</span></div>
-          <div className="proof-stat"><strong>18<span>+</span></strong><span>endpoints reviewed<br />for missed persistence</span></div>
+          <div className="proof-intro"><span className="eyebrow">Investigation highlights</span><p>Evidence-led work<br />at AreteIR</p></div>
+          <div className="proof-stat"><strong>7 + 2</strong><span>BEC / cybercrime<br />and ransomware cases</span></div>
+          <div className="proof-stat"><strong>18<span>+</span></strong><span>endpoints reviewed<br />for persistence</span></div>
           <div className="proof-stat"><strong>25<span>+</span></strong><span>indicators pivoted<br />to scope activity</span></div>
-          <p className="proof-note">Experience highlights from my AreteIR internship.</p>
+          <p className="proof-note">Selected metrics from my forensic analyst experience.</p>
         </div>
       </section>
 
       <section className="section page-width" id="work">
-        <SectionHeading eyebrow="Selected work" title="Investigation thinking, built into tools." detail="A few projects at the intersection of digital evidence, incident response, and detection." />
-        <div className="project-grid">
-          {investigations.map((project) => (
-            <article className="project-card" key={project.number}>
-              <div className="project-card-top"><span>{project.number}</span><ArrowUpRight aria-hidden="true" /></div>
-              <p className="project-category">{project.category}</p>
-              <h3>{project.title}</h3>
-              <p className="project-description">{project.description}</p>
-              <div className="tag-list">{project.tools.map((tool) => <span className="tag" key={tool}>{tool}</span>)}</div>
-            </article>
-          ))}
-        </div>
-        <p className="confidentiality-note"><ShieldCheck aria-hidden="true" /> Case details are generalized to respect confidentiality; project descriptions reflect academic and portfolio work.</p>
+        <SectionHeading eyebrow="Selected work" title="Tools for the moments that matter." detail="Digital forensics, incident response, ransomware detection, and threat intelligence projects." />
+        <ProjectSlider projects={projects} />
+        <p className="confidentiality-note"><ShieldCheck aria-hidden="true" /> Case details are generalized to respect confidentiality. Project descriptions reflect portfolio work.</p>
       </section>
 
       <section className="section section-tinted" id="experience">
         <div className="page-width">
-          <SectionHeading eyebrow="Experience" title="From evidence to understanding." detail="Hands-on work across incident response, cybercrime investigations, and security testing." />
+          <SectionHeading eyebrow="Experience" title="From evidence to understanding." detail="Experience across incident response, cybercrime investigations, and security testing." />
           <div className="experience-list">
             {experience.map((role) => (
               <article className="experience-item" key={`${role.company}-${role.date}`}>
@@ -243,33 +188,30 @@ export function PortfolioPage() {
       </section>
 
       <section className="section page-width" id="expertise">
-        <SectionHeading eyebrow="Beyond the investigation" title="Connected areas of expertise." detail="Supporting disciplines that help me investigate, anticipate, and communicate security risk." />
-        <div className="strength-grid">
-          {strengths.map((strength) => (
-            <article className="strength-card" key={strength.number}>
-              <span className="strength-number">{strength.number}</span>
-              <h3>{strength.title}</h3>
-              <p>{strength.text}</p>
-              <span className="strength-tools">{strength.tools}</span>
-            </article>
-          ))}
-        </div>
-        <div className="toolbox">
-          <div className="toolbox-heading"><span className="eyebrow">Working toolkit</span><span>Tools & methods</span></div>
-          {toolGroups.map((group) => <div className="toolbox-row" key={group.label}><span>{group.label}</span><p>{group.items}</p></div>)}
+        <SectionHeading eyebrow="DFIR first · Broader security depth" title="A connected security skill set." detail="Explore the capabilities and tools I bring to an investigation and the disciplines that support it." />
+        <ExpertiseTabs />
+        <div className="evidence-sources">
+          <div className="toolbox-heading"><span className="eyebrow">Investigation coverage</span><span>Evidence sources</span></div>
+          <div className="evidence-source-grid">
+            {evidenceSources.map((source) => (
+              <article className="evidence-source" key={source.type}>
+                <span>{source.type}</span><h3>{source.sources}</h3><p>{source.details}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
       <section className="section section-tinted" id="about">
         <div className="page-width about-layout">
           <div className="about-main">
-            <SectionHeading eyebrow="About" title="Curious by nature. Careful with evidence." />
-            <p className="about-copy">I’m Atikram, a digital forensics and incident response analyst with a foundation in forensic investigation and a practical interest in how adversaries move through systems. I work across endpoint, memory, network, identity, email, and cloud evidence—then communicate what happened, what it means, and what to do next.</p>
+            <SectionHeading eyebrow="Profile" title="Evidence-driven. Methodical. Clear." />
+            <p className="about-copy">I’m Atikram, a digital forensics and incident response analyst who brings structure to complex investigations. I examine endpoint, memory, network, identity, email, and cloud evidence to reconstruct events, establish scope, and explain what happened in language teams can act on. My experience in BEC and ransomware investigations is complemented by threat hunting, security testing, and risk and compliance—so findings can inform both immediate response and stronger security controls.</p>
             <div className="credential-list">{credentials.map((credential) => <div key={credential}><Check aria-hidden="true" />{credential}</div>)}</div>
           </div>
           <aside className="education-card">
             <span className="eyebrow">Education</span>
-            <div className="education-entry"><span>2024 — 2026</span><h3>M.Sc. Digital Forensics & Information Security</h3><p>National Forensic Sciences University</p></div>
+            <div className="education-entry"><span>2024 — 2026</span><h3>M.Sc. Digital Forensics &amp; Information Security</h3><p>National Forensic Sciences University</p></div>
             <div className="education-entry"><span>2020 — 2023</span><h3>Bachelor of Computer Applications</h3><p>Assam Science and Technology University</p></div>
           </aside>
         </div>
@@ -277,10 +219,10 @@ export function PortfolioPage() {
 
       <footer className="contact-footer" id="contact">
         <div className="page-width footer-inner">
-          <div><p className="eyebrow">Have a role, case, or conversation in mind?</p><h2>Let’s talk about<br /><span>the evidence.</span></h2></div>
+          <div><p className="eyebrow">Open to the right opportunity</p><h2>Let’s discuss<br /><span>what happened.</span></h2></div>
           <div className="footer-actions">
-            <a className="button button-light" href="mailto:atikramdas24@gmail.com"><AtSign aria-hidden="true" /> Email Atikram <ArrowRight aria-hidden="true" /></a>
-            <a className="footer-link" href="tel:+919387947070">+91 93879 47070</a>
+            <a className="button button-light" href="mailto:atikramdas24@gmail.com"><span className="contact-icon" aria-hidden="true">@</span> Email Atikram <ArrowRight aria-hidden="true" /></a>
+            <p className="contact-privacy">Use the button to start an email. My address isn’t displayed publicly.</p>
             <div className="social-links">
               <a href="https://www.linkedin.com/in/atikram-das-92b271320" target="_blank" rel="noreferrer"><Linkedin aria-hidden="true" /> LinkedIn <ArrowUpRight aria-hidden="true" /></a>
               <a href="https://github.com/atikram-ui" target="_blank" rel="noreferrer"><Github aria-hidden="true" /> GitHub <ArrowUpRight aria-hidden="true" /></a>

@@ -10,14 +10,14 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "Atikram Das | DFIR & Digital Forensics",
+  title: "Atikram Das | Digital Forensics & Incident Response Analyst",
   description:
-    "Atikram Das is a digital forensics and incident response analyst focused on evidence-led investigations, threat hunting, and incident response.",
+    "Digital Forensics & Incident Response Analyst investigating BEC and ransomware incidents through evidence-led analysis, threat hunting, and clear response recommendations.",
   generator: "v0.app",
   openGraph: {
-    title: "Atikram Das | DFIR & Digital Forensics",
+    title: "Atikram Das | Digital Forensics & Incident Response Analyst",
     description:
-      "Digital forensics, incident response, threat hunting, and security expertise.",
+      "Evidence-led digital forensics, incident response, BEC and ransomware investigations, and threat hunting.",
     type: "website",
   },
 }
