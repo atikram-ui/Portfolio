@@ -1,18 +1,11 @@
 "use client"
 
+import Link from "next/link"
 import { useState } from "react"
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react"
+import type { PortfolioProject } from "@/data/projects"
 
-type Project = {
-  number: string
-  category: string
-  title: string
-  description: string
-  tools: string[]
-  mark: string
-}
-
-export function ProjectSlider({ projects }: { projects: Project[] }) {
+export function ProjectSlider({ projects }: { projects: PortfolioProject[] }) {
   const [activeIndex, setActiveIndex] = useState(0)
   const project = projects[activeIndex]
   const showProject = (index: number) => setActiveIndex((index + projects.length) % projects.length)
@@ -32,6 +25,7 @@ export function ProjectSlider({ projects }: { projects: Project[] }) {
           <h3>{project.title}</h3>
           <p className="project-description">{project.description}</p>
           <div className="tag-list">{project.tools.map((tool) => <span className="tag" key={tool}>{tool}</span>)}</div>
+          <Link className="project-detail-link" href={`/projects/${project.slug}`}>Open investigation brief <ArrowUpRight aria-hidden="true" /></Link>
         </div>
       </article>
       <div className="slider-controls">

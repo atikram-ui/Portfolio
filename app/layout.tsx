@@ -1,6 +1,6 @@
 import type React from "react"
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import type { Metadata, Viewport } from "next"
+import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google"
 import "./globals.css"
 
 const inter = Inter({
@@ -9,15 +9,35 @@ const inter = Inter({
   variable: "--font-inter",
 })
 
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-space-grotesk",
+})
+
+const jetBrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-jetbrains-mono",
+})
+
+export const viewport: Viewport = {
+  themeColor: "#080C14",
+  colorScheme: "dark",
+  width: "device-width",
+  initialScale: 1,
+  userScalable: true,
+}
+
 export const metadata: Metadata = {
-  title: "Atikram Das | Digital Forensics & Incident Response Analyst",
+  title: "Atikram Das | Cybersecurity & Digital Forensics Professional",
   description:
-    "Digital Forensics & Incident Response Analyst investigating BEC and ransomware incidents through evidence-led analysis, threat hunting, and clear response recommendations.",
+    "Cybersecurity and digital forensics professional focused on incident response, malware analysis, Windows forensics, log analysis, and SIEM/SOAR workflows.",
   generator: "v0.app",
   openGraph: {
-    title: "Atikram Das | Digital Forensics & Incident Response Analyst",
+    title: "Atikram Das | Cybersecurity & Digital Forensics Professional",
     description:
-      "Evidence-led digital forensics, incident response, BEC and ransomware investigations, and threat hunting.",
+      "Digital forensics, incident response, malware analysis, Windows forensics, log analysis, and SIEM/SOAR workflows.",
     type: "website",
   },
 }
@@ -28,7 +48,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} ${jetBrainsMono.variable}`}>
       <body className="antialiased">{children}</body>
     </html>
   )
