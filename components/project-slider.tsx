@@ -19,7 +19,7 @@ export function ProjectSlider({ projects }: { projects: Project[] }) {
 
   return (
     <div className="project-slider" aria-roledescription="carousel" aria-label="Selected projects">
-      <article className="project-slide" aria-live="polite" aria-atomic="true">
+      <article key={project.number} className="project-slide" aria-live="polite" aria-atomic="true">
         <div className="slide-visual" aria-hidden="true">
           <span className="slide-visual-label">CASE STUDY / {project.number}</span>
           <span className="slide-visual-mark">{project.mark}</span>
