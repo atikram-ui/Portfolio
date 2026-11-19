@@ -1,56 +1,49 @@
-# 🛡️ Cyber Security Portfolio
 
-A modern, responsive portfolio website for showcasing my work in **Cyber Security, Digital Forensics, Threat Intelligence, and Security Research**.
+# Atikram Das | Digital Forensics & Incident Response Analyst
 
-Live demo: **https://v0-cyber-security-portfolio-vert.vercel.app**
+**Digital Forensics • Incident Response • Cybersecurity Investigations • Threat Intelligence**
 
----
+I am a Digital Forensics and Incident Response (DFIR) professional with experience investigating cyber incidents through disk, memory, network, and log evidence. My work focuses on forensic acquisition, evidence preservation, Windows artifact analysis, timeline reconstruction, IOC correlation, and incident investigation.
 
-## 🚀 Overview
+I aim to make complex investigations more structured, evidence-driven, and actionable.
 
-This project is a developer-friendly portfolio built using **Next.js** and **TypeScript**.  
-It’s optimized for security-focused roles and highlights:
-
-- Cyber Security & DFIR skills
-- Projects and case studies
-- Certifications & achievements
-- Experience, education, and tools/tech stack
-
-The repository is also synced with **v0.app** and deployed via **Vercel**, so UI changes can be made visually and then pushed to this repo.
-
----
-
-## ✨ Features
-
-- 🧑‍💻 **Cyber Security–focused layout** (skills, tools, projects, and case studies)
-- 📱 **Fully responsive** for desktop, tablet, and mobile
-- ⚡ **Fast and optimized** using Next.js
-- 🧩 **Component-based architecture** for easy customization
-- 🎯 Ready to be used as a **portfolio for job applications, internships, and client work**
+<p align="left">
+  <a href="https://v0-cyber-security-portfolio-vert.vercel.app/">
+    <img src="https://img.shields.io/badge/Portfolio-Visit%20Website-2563EB?style=for-the-badge&logo=vercel&logoColor=white" alt="Portfolio">
+  </a>
+  <a href="https://www.linkedin.com/in/atikram-das-92b271320">
+    <img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
+  </a>
+  <a href="https://github.com/atikram-ui">
+    <img src="https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
+  </a>
+</p>
 
 ---
 
-## 🧰 Tech Stack
+## About Me
 
-- **Framework:** Next.js (App Router)
-- **Language:** TypeScript
-- **Styling:** CSS (and utility-based styling via the `styles/` and `components/` structure)
-- **Package Manager:** pnpm (recommended) or npm
-- **Deployment:** Vercel
-- **Design Source:** Synced from [v0.app](https://v0.app)
+- Digital Forensics and Incident Response professional.
+- Experience investigating Business Email Compromise (BEC), ransomware, and cybercrime incidents.
+- Hands-on exposure to forensic acquisition, evidence preservation, and chain-of-custody procedures.
+- Experienced in analyzing Windows artifacts, memory images, network traffic, and security logs.
+- Familiar with SIEM-based investigation using Splunk and Microsoft Sentinel.
+- Interested in DFIR, threat intelligence, malware investigations, and OT/ICS security.
+
+## Connect With Me
+
+I am open to professional discussions, collaboration, and opportunities in Digital Forensics, Incident Response, and Cybersecurity.
+
+- **Portfolio:** https://v0-cyber-security-portfolio-vert.vercel.app/
+- **LinkedIn:** https://www.linkedin.com/in/atikram-das-92b271320
+- **GitHub:** https://github.com/atikram-ui
+- **Email:** atikramdas24@gmail.com
+- **Location:** Hyderabad, Telangana, India
 
 ---
 
-## 📂 Project Structure
-
-```txt
-.
-├── app/              # Next.js app routes & layout
-├── components/       # Reusable UI components
-├── data/             # Portfolio data (projects, skills, links, etc.)
-├── lib/              # Utilities and helper functions
-├── public/           # Static assets (images, icons, etc.)
-├── styles/           # Global and component styles
-├── next.config.mjs   # Next.js configuration
-├── package.json      # Dependencies and scripts
-└── README.md
+<p align="center">
+  <b>Digital Evidence. Structured Investigation. Actionable Intelligence.</b>
+  <br>
+  <i>Atikram Das | Digital Forensics & Incident Response</i>
+</p>
